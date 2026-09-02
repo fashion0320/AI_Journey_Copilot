@@ -1,0 +1,137 @@
+/* Thought Process Card */
+.thought-process-card {
+  background: rgba(99, 102, 241, 0.06);
+  border-left: 3px solid var(--accent, #6366f1);
+  padding: 0;
+  overflow: hidden;
+}
+
+.thought-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-secondary, #6b7280);
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.thought-header:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.thought-icon {
+  font-size: 14px;
+}
+
+.thought-header-text {
+  flex: 1;
+  font-weight: 500;
+}
+
+.thought-chevron {
+  font-size: 10px;
+  color: var(--text-tertiary, #9ca3af);
+  transition: transform 0.2s;
+}
+
+.thought-process-card.expanded .thought-chevron {
+  transform: rotate(0deg);
+}
+
+.thought-body {
+  padding: 4px 14px 14px 14px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-secondary, #6b7280);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.thought-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary, #1f2937);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+.thought-sub-heading {
+  margin-bottom: 6px;
+}
+
+.thought-point {
+  margin-bottom: 8px;
+}
+
+.thought-point-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.thought-point-num {
+  color: var(--accent, #6366f1);
+  font-weight: 600;
+  min-width: 18px;
+  flex-shrink: 0;
+}
+
+.thought-point-heading {
+  font-weight: 600;
+  color: var(--text-primary, #374151);
+}
+
+.thought-point-body {
+  color: var(--text-secondary, #6b7280);
+  margin-left: 20px;
+  margin-top: 2px;
+}
+
+.thought-body-line {
+  margin-bottom: 2px;
+}
+
+.thought-bullet {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+
+.thought-bullet-dot {
+  color: var(--accent, #6366f1);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.thought-line {
+  margin-bottom: 4px;
+}
+
+/* Scrollbar styling for thought body */
+.thought-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.thought-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thought-body::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 2px;
+}
+
+.thought-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.35);
+}

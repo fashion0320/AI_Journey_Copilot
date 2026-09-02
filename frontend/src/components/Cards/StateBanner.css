@@ -1,0 +1,88 @@
+.state-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.banner-icon {
+  font-size: 16px;
+}
+
+.banner-label {
+  flex: 1;
+  color: #e2e8f0;
+}
+
+.banner-thinking {
+  background: rgba(99, 102, 241, 0.08);
+  color: #c7d2fe;
+}
+
+.banner-clarify {
+  background: rgba(251, 191, 36, 0.08);
+  color: #fcd34d;
+}
+
+.banner-ready {
+  background: rgba(74, 222, 128, 0.08);
+  color: #bbf7d0;
+}
+
+.banner-progress {
+  background: rgba(59, 130, 246, 0.08);
+  color: #93c5fd;
+}
+
+.banner-arriving {
+  background: rgba(74, 222, 128, 0.12);
+  color: #bbf7d0;
+}
+
+.banner-completed {
+  background: rgba(74, 222, 128, 0.08);
+  color: #bbf7d0;
+}
+
+.banner-idle {
+  background: transparent;
+  color: #64748b;
+}
+
+/* 打字点动画 */
+.banner-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.banner-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+  animation: banner-dot-bounce 1.4s ease-in-out infinite;
+}
+
+.banner-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.banner-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes banner-dot-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}

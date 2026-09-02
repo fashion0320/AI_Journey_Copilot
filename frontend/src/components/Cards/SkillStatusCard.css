@@ -1,0 +1,137 @@
+.skill-status-card {
+  padding: 10px 12px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.skill-status-card:hover {
+  opacity: 1;
+}
+
+.skill-status-card.status-pending {
+  border-color: rgba(99, 102, 241, 0.2);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.skill-status-card.status-success {
+  border-color: rgba(74, 222, 128, 0.15);
+  background: rgba(74, 222, 128, 0.03);
+}
+
+.skill-status-card.status-error {
+  border-color: rgba(248, 113, 113, 0.2);
+  background: rgba(248, 113, 113, 0.05);
+}
+
+.skill-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-icon {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-status-icon {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-pending .skill-status-icon { color: #c7d2fe; }
+.status-success .skill-status-icon { color: #4ade80; }
+.status-error .skill-status-icon { color: #f87171; }
+.status-noresult .skill-status-icon { color: #94a3b8; }
+
+.skill-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-name {
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.skill-action {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.skill-status-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.skill-status-tag.status-pending {
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+}
+
+.skill-status-tag.status-success {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+.skill-status-tag.status-error {
+  background: rgba(248, 113, 113, 0.15);
+  color: #f87171;
+}
+
+.skill-status-tag.status-noresult {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+}
+
+.skill-expand-icon {
+  font-size: 10px;
+  color: #64748b;
+  transition: transform 0.2s;
+}
+
+.skill-detail {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: text;
+}
+
+.skill-detail-row {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.detail-label {
+  color: #64748b;
+  flex-shrink: 0;
+  min-width: 50px;
+}
+
+.detail-value {
+  color: #cbd5e1;
+  word-break: break-all;
+}
+
+.detail-value.mono {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 11px;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.skill-detail-row.error .detail-value {
+  color: #f87171;
+}

@@ -1,0 +1,81 @@
+.journey-ready-card {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(139, 92, 246, 0.04)
+  );
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.eta-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 12px 0;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.eta-big {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eta-big .info-value-large {
+  line-height: 1;
+}
+
+.eta-arrival {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.section-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+
+.parking-info,
+.reminders-info {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.parking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+}
+
+.parking-name {
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.parking-walk {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.reminder-item {
+  font-size: 12px;
+  color: #cbd5e1;
+  padding: 4px 0;
+  line-height: 1.5;
+}
+
+.reminder-item::before {
+  content: '• ';
+  color: #6366f1;
+}

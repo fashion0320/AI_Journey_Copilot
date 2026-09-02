@@ -1,0 +1,107 @@
+.map-view {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.user-chip, .journey-chip {
+  padding: 6px 12px;
+  background: rgba(20, 25, 40, 0.85);
+  color: #e2e8f0;
+  border-radius: 20px;
+  font-size: 12px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+}
+
+/* Floating ETA overlay (top-right) */
+.map-eta-overlay {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.eta-mini {
+  min-width: 130px;
+  padding: 12px 16px;
+  background: rgba(20, 25, 40, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.eta-mini-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.eta-mini-number {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #a5b4fc, #c4b5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eta-mini-unit {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.eta-mini-arrival {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.eta-mini-dest {
+  margin-top: 2px;
+  font-size: 11px;
+  color: #94a3b8;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eta-mini-traffic {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.traffic-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}

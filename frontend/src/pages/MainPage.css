@@ -1,0 +1,56 @@
+.main-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0f141e;
+  position: relative;
+}
+
+.left-panel {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.center-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.right-panel {
+  width: 380px;
+  flex-shrink: 0;
+  transition: margin-right 0.3s;
+}
+
+.right-panel.hidden {
+  margin-right: -380px;
+}
+
+.gcp-toggle {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  padding: 12px 4px;
+  background: rgba(99, 102, 241, 0.85);
+  border: none;
+  border-radius: 6px 0 0 6px;
+  color: #fff;
+  font-size: 12px;
+  writing-mode: vertical-rl;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: right 0.3s, background 0.2s;
+  backdrop-filter: blur(4px);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+}
+.gcp-toggle:hover {
+  background: rgba(99, 102, 241, 1);
+}
+.gcp-toggle.gcp-visible {
+  right: 380px;
+}
+.gcp-toggle.gcp-hidden {
+  right: 0;
+}
