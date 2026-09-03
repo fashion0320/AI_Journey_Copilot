@@ -78,10 +78,11 @@ app = create_app()
 
 if __name__ == "__main__":
     import uvicorn
+    # 开发环境开启 reload，生产环境（gunicorn 等）直接用 app 变量
     uvicorn.run(
         "app.main:app",
         host=settings.backend_host,
         port=settings.backend_port,
-        reload=True,
+        reload=settings.debug,
         ws_ping_interval=None,  # WebSocket 不发 ping，避免干扰
     )

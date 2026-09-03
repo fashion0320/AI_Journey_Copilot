@@ -96,6 +96,10 @@ class Settings(BaseSettings):
     demo_eta_interval_sec: int = Field(default=10, alias="DEMO_ETA_INTERVAL_SEC")
     demo_eta_step_min: int = Field(default=2, alias="DEMO_ETA_STEP_MIN")
 
+    # ---- 生产/开发模式 ----
+    debug: bool = Field(default=False, alias="DEBUG")
+    enable_test_routers: bool = Field(default=False, alias="ENABLE_TEST_ROUTERS")
+
     # ---- 日志 ----
     log_level: str = Field(default="info", alias="LOG_LEVEL")
 

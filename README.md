@@ -44,6 +44,79 @@ npm run dev
 
 访问: http://localhost:5173
 
+## 公网部署（Vercel + Render）
+
+可以将产品部署到公网，通过链接分享给其他人访问。
+
+### 前置准备
+
+1. 将代码推送到 GitHub
+2. 注册 [Render](https://render.com) 账号（免费）
+3. 注册 [Vercel](https://vercel.com) 账号（免费）
+
+### Step 1: 部署后端到 Render
+
+1. Render 控制台 → New → Web Service → 连接你的 GitHub 仓库
+2. 配置：
+   - **Name**: 自定义（如 `ai-journey-copilot-backend`）
+   - **Region**: Singapore（延迟低）
+   - **Root Directory**: `backend`
+   - **Runtime**: Python 3
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app.main:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT`
+   - **Instance Type**: Free（免费版）
+3. 环境变量（Environment Variables）：
+
+   | Key | Value |
+   |---|---|
+   | `ANTHROPIC_API_KEY` | 你的 Claude API Key |
+   | `AMAP_KEY` | 你的高德 Web 服务 Key |
+   | `VOLCENGINE_API_KEY` | 火山引擎通用 Key |
+   | `VOLCENGINE_ASR_API_KEY` | 火山 ASR Key（可复用上面） |
+   | `VOLCENGINE_TTS_API_KEY` | 火山 TTS Key（可复用上面） |
+   | `TAVILY_API_KEY` | Tavily 搜索 Key |
+   | `CORS_ORIGINS` | `*`（先允许所有，等 Vercel 域名拿到后改紧） |
+   | `JOURNEY_DEMO_SIMULATION` | `1` |
+   | `LOG_LEVEL` | `info` |
+
+4. 点击 Deploy，等待部署完成（约 2-5 分钟）
+5. 部署成功后会拿到公网域名：`https://xxx.onrender.com`
+6. 验证：访问 `https://xxx.onrender.com/health` 返回 `{"status":"ok"}`
+
+> 注意：Render 免费版有冷启动（第一次访问需 30-60 秒唤醒），之后正常。
+
+### Step 2: 部署前端到 Vercel
+
+1. Vercel 控制台 → Add New → Project → 导入你的 GitHub 仓库
+2. 配置：
+   - **Framework Preset**: Vite（自动检测）
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. 环境变量（Environment Variables）：
+
+   | Key | Value |
+   |---|---|
+   | `VITE_API_BASE_URL` | `https://xxx.onrender.com`（Step 1 拿到的 Render 域名） |
+   | `VITE_WS_BASE_URL` | `wss://xxx.onrender.com` |
+   | `VITE_AMAP_JS_KEY` | 你的高德 JS API Key |
+
+4. 点击 Deploy，等待构建完成（约 1-2 分钟）
+5. 部署成功后拿到公网域名：`https://xxx.vercel.app`
+
+### Step 3: 收尾
+
+1. **收紧 CORS**：回到 Render，把 `CORS_ORIGINS` 从 `*` 改为 `https://xxx.vercel.app`，保存后会自动重新部署
+2. **高德域名白名单**：登录高德开放平台控制台，在 JS API Key 的安全设置中添加 `xxx.vercel.app` 到域名白名单（如果之前只配置了 localhost）
+3. **测试**：打开 `https://xxx.vercel.app`，验证对话、地图、卡片渲染正常
+
+### 环境变量说明
+
+| 变量 | 位置 | 用途 |
+|---|---|---|
+| `DEBUG=1` | 后端 | 开启热重载（仅开发用） |
+| `ENABLE_TEST_ROUTERS=1` | 后端 | 启用测试 API 端点（/api/test/*），生产默认关闭 |
+
 ## 项目结构
 
 ```
