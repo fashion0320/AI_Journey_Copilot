@@ -360,7 +360,7 @@ export interface PoICandidate {
   id: string
   name: string
   address: string
-  location: { lat: number; lon: number }
+  location: { lat: number; lon: number } | string
   distance: string
   category: string
 }
